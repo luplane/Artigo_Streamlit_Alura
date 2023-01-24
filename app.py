@@ -5,9 +5,10 @@ import matplotlib.pyplot as plt
 
 #function to select quantity of rows from dataframe
 def mostra_qntd_linhas(dataframe):
-    qntd_linhas = st.sidebar.slider('Selecione a quantidade q deseja mostrar na tabela', min_value=1, max_value=len(dataframe),step=1)
+    qntd_linhas = st.sidebar.slider('Selecione a quantidade q deseja mostrar na tabela', min_value=0, max_value=len(dataframe),step=1)
     #st.write(dataframe.head(qntd_linhas).style.format(subset=['Valor'],formatter="{:.2f}"))
-    st.write(dataframe.head(qntd_linhas).style.format(subset=['Pontos Qualificaveis'],formatter="{:.2f}"))
+    #st.write(dataframe.head(qntd_linhas).style.format(subset=['Pontos Qualificaveis'],formatter="{:.2f}"))
+    st.write(dataframe.head(qntd_linhas).style.format())
  
 #writing a title in the webpage
 st.title('My first aplication :sunglasses::smile:')
@@ -33,6 +34,7 @@ if checkbox_mostrar_tabela:
         #df_categria = dados.query('Categoria == @categoria')
         df_categoria=dados.query('Produto == @prod')
         mostra_qntd_linhas(df_categoria)
+        
     else:
         mostra_qntd_linhas(dados) 
 
